@@ -21,7 +21,7 @@ export class GameService {
   }
 
   async playGame(username: string, value: number) {
-    if (!this.games.has(username)) {
+    if (!this.games.has(username) || !this.games.get(username)) {
       throw new HttpException('No game started', 400);
     }
     await this.validateParams({ value });

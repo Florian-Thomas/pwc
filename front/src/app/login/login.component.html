@@ -1,0 +1,22 @@
+<div
+  class="fixed top-20 left-1/2 -translate-x-1/2 bg-neutral-600 shadow-2xl shadow-black p-10"
+  [hidden]="submitted"
+>
+  <div class="px-9 py-6">
+    <form (ngSubmit)="onSubmit()" class="flex flex-col" #loginForm="ngForm">
+      <span class="text-login">username</span>
+
+      <button
+        type="submit"
+        class="btn btn-success signin-btn"
+        [disabled]="!loginForm.form.valid"
+      >
+        Login
+      </button>
+      <div *ngIf="error" class="alert-msg">
+        {{ error }}
+      </div>
+      <hr class="border-white opacity-20" />
+    </form>
+  </div>
+</div>

@@ -29,16 +29,17 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-
     if (req.headers.has('bypassInterceptor')) {
-      const clonedRequest = req.clone({ headers: req.headers.delete('bypassInterceptor') });
+      const clonedRequest = req.clone({
+        headers: req.headers.delete('bypassInterceptor'),
+      });
       return next.handle(clonedRequest);
     }
-  
+
     const idToken = localStorage.getItem('id_token');
     let base_url = '';
     if (isDevMode()) {
-      base_url = 'http://localhost:8080/';
+      base_url = 'http://localhost:3000/';
     }
 
     if (idToken) {

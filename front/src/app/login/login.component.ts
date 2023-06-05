@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginForm } from './login-form';
+import { LoginService } from '../services/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +13,19 @@ export class LoginComponent implements OnInit {
   submitted = false;
   model = new LoginForm();
 
-  constructor() {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.model);
+    this.submitted = true;
+    this.loginService.login(this.model.username).subscribe({
+      next: (res) => {
+        console.log('User is logged in');
+        this.error = null;
+        this.router.navigateByUrl('/game');
+      },
+      error: (err) => (this.error = err.error.message),
+    });
   }
 }

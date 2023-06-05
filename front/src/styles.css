@@ -3,26 +3,3 @@
 @tailwind components;
 
 @tailwind utilities;
-
-@layer components {
-    .text-input-login{
-      @apply transition-all duration-500 ease-in-out border-white rounded-full h-5 w-60 py-3 mt-2;
-    }
-    .text-login{
-      @apply text-base font-serif uppercase opacity-100 inline-block  transition-all duration-500 ease-in-out pl-3 mt-4;
-    }
-    .login-header{
-      @apply basis-1/2 text-center uppercase text-xl py-2;
-    }
-    .signin-btn{
-      @apply text-white bg-blue-600 rounded-full uppercase py-2 m-7 mx-5 transition-all duration-500 ease-in-out;
-    }
-    .signin-btn:hover{
-      @apply bg-blue-500 shadow-custom	shadow-blue-500 cursor-pointer;
-    }
-    .alert-msg{
-      @apply bg-rose-500 rounded-full h-6 w-60 font-black text-center border border-red-600 pt-1;
-      font-size: 9px;
-    }
-  }
-  

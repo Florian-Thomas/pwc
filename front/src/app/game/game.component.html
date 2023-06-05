@@ -1,0 +1,46 @@
+<div
+  class="fixed top-20 left-1/2 -translate-x-1/2 bg-neutral-600 shadow-2xl shadow-black p-10"
+>
+  <div *ngIf="!game_started" class="flex flex-col">
+    <button
+      type="submit"
+      class="text-white bg-blue-600 w-64 rounded-full uppercase py-2 m-7 mx-5 transition-all duration-500 ease-in-out hover:bg-blue-500 hover:shadow-custom hover:shadow-blue-500 hover:cursor-pointer;"
+      (click)="startGame()"
+    >
+      Start playing
+    </button>
+  </div>
+  <div *ngIf="game_started" class="flex flex-col">
+    <h1 class="text-white text-xl mb-8">
+      Guess the number between 1 and 10.000
+    </h1>
+    <div class="flex flex-row">
+      <div class="text-white">Enter a number:</div>
+      <input
+        type="text"
+        class="text-center border-white rounded-full h-5 w-60 py-3 mx-5"
+        id="value"
+        required
+        [(ngModel)]="value"
+        name="value"
+      />
+    </div>
+    <button
+      type="submit"
+      class="text-white bg-blue-600 rounded-full uppercase py-2 m-7 mx-5 transition-all duration-500 ease-in-out hover:bg-blue-500 hover:shadow-custom hover:shadow-blue-500 hover:cursor-pointer;"
+      (click)="guess(value)"
+    >
+      Guess
+    </button>
+    <div *ngIf="msg" class="text-white">{{ msg }}</div>
+    <div *ngIf="msg && msg == 'Well done!'">
+      <button
+        type="submit"
+        class="text-white bg-blue-600 w-64 rounded-full uppercase py-2 m-7 mx-5 transition-all duration-500 ease-in-out hover:bg-blue-500 hover:shadow-custom hover:shadow-blue-500 hover:cursor-pointer;"
+        (click)="playAgain()"
+      >
+        Play Again
+      </button>
+    </div>
+  </div>
+</div>

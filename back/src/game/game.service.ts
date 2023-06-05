@@ -29,11 +29,11 @@ export class GameService {
     const game_value = this.games.get(username);
 
     if (value < game_value) {
-      return 'bigger';
+      return { response: "It's bigger" };
     } else if (value > game_value) {
-      return 'smaller';
+      return { response: "It's smaller" };
     } else {
-      return 'equal';
+      return { response: 'Well done!' };
     }
   }
 }

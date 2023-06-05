@@ -1,16 +1,7 @@
 <div
   class="fixed top-20 left-1/2 -translate-x-1/2 bg-neutral-600 shadow-2xl shadow-black p-10"
 >
-  <div *ngIf="!game_started" class="flex flex-col">
-    <button
-      type="submit"
-      class="text-white bg-blue-600 w-64 rounded-full uppercase py-2 m-7 mx-5 transition-all duration-500 ease-in-out hover:bg-blue-500 hover:shadow-custom hover:shadow-blue-500 hover:cursor-pointer;"
-      (click)="startGame()"
-    >
-      Start playing
-    </button>
-  </div>
-  <div *ngIf="game_started" class="flex flex-col">
+  <div class="flex flex-col">
     <h1 class="text-white text-xl mb-8">
       Guess the number between 1 and 10.000
     </h1>

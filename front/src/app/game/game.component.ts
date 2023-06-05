@@ -8,16 +8,15 @@ import { GameService } from '../services/game/game.service';
 })
 export class GameComponent {
   value = null;
-  game_started = false;
   msg: any = null;
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService) {
+    this.gameService.newGame().subscribe();
+  }
   startGame() {
-    this.game_started = true;
     this.gameService.newGame().subscribe();
   }
   playAgain() {
-    this.game_started = true;
     this.gameService.newGame().subscribe();
     this.msg = null;
   }
